@@ -1,2 +1,0 @@
-dimorphite_dl/sample_molecules.smi
-dimorphite_dl/site_substructures.smarts
