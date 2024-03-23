@@ -27,5 +27,5 @@ setuptools.setup(
         'rdkit': ['rdkit>=2017.09'],
     },
     entry_points={'console_scripts':
-                      ['dimorphite_dl = dimorphite_dl.run_dock:main',
+                      ['dimorphite_dl = dimorphite_dl.run_dock:main']}
 )
