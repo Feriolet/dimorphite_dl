@@ -60,6 +60,21 @@ except:
     raise Exception(msg)
 
 
+
+def convert_kwargs_to_sys_argv(params: dict) -> list:
+    sys_argv_list = []
+    for key, value in params.items():
+        # Since some argument have store_true argument, we don't need to include the 'True' value into the sys.argv
+        if value is True:
+            sys_argv_list.append('--'+key)
+        elif value is False:
+            continue
+        else:
+            sys_argv_list.append('--'+key)
+            sys_argv_list.append(str(value))
+        
+    return sys_argv_list
+
 def main(params=None):
     """The main definition run when you call the script from the commandline.
 
@@ -71,8 +86,10 @@ def main(params=None):
              True. Otherwise, returns None.
     """
 
+    sys_argv_list = convert_kwargs_to_sys_argv(params)
     parser = ArgParseFuncs.get_args()
-    args = vars(parser.parse_args())
+    args = vars(parser.parse_args(sys_argv_list))
+
 
     if not args["silent"]:
         print_header()
