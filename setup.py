@@ -15,7 +15,11 @@ setuptools.setup(
     long_description=long_description,
     long_description_content_type="text/markdown",
     url="https://github.com/Feriolet/dimorphite_dl",
-    packages=['dimorphite_dl'],
+    packages=find_packages(),
+    package_data={
+        "": ["*.smi", "*.smarts", "training_data/*.json"]
+    },
+    include_package_data=True,
     classifiers=[
         "Programming Language :: Python :: 3",
         "Operating System :: OS Independent",
