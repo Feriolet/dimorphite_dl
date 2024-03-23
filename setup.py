@@ -1,4 +1,4 @@
-import setuptools
+from setuptools import find_packages, setup
 from os import path
 import dimorphite_dl
 
