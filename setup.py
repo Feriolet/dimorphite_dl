@@ -14,7 +14,7 @@ setuptools.setup(
     description="Dimorphite-DL: an open-source program for enumerating the ionization states of drug-like small molecules",
     long_description=long_description,
     long_description_content_type="text/markdown",
-    url="https://github.com/durrantlab/dimorphite_dl",
+    url="https://github.com/Feriolet/dimorphite_dl",
     packages=['dimorphite_dl'],
     classifiers=[
         "Programming Language :: Python :: 3",
