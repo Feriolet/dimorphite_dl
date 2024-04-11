@@ -88,8 +88,10 @@ def main(params=None):
 
     sys_argv_list = convert_kwargs_to_sys_argv(params)
     parser = ArgParseFuncs.get_args()
-    args = vars(parser.parse_args(sys_argv_list))
-
+    args, unknown_args = parser.parse_known_args(sys_argv_list)
+    args = vars(args)
+    if '--return_as_list' in unknown_args:
+        args['return_as_list'] = True
 
     if not args["silent"]:
         print_header()
@@ -1426,6 +1428,8 @@ def run_with_mol_list(mol_lst, **kwargs):
     # Set the return_as_list flag so main() will return the protonated smiles
     # as a list.
     kwargs["return_as_list"] = True
+
+    kwargs["silent"] = True
 
     # Having reviewed the code, it will be very difficult to rewrite it so
     # that a list of Mol objects can be used directly. Intead, convert this
